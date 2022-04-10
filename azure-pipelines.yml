@@ -1,0 +1,25 @@
+name: Scenario_$(Date:yyyMMdd)$(Rev:.r)
+trigger: 
+- Main
+jobs:
+- job: ActivityonWindows
+  pool:
+  - MVCLocalPool
+  steps:
+  - task: PowerShell@2
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your PowerShell commands here.
+        
+        Write-Host "Hello World"
+- job: ActivityonLnux
+  pool:
+  - MVCLocalPool
+  steps:
+  - task: CmdLine@2
+    inputs:
+      script: |
+        echo Write your commands here
+        
+        echo Hello world
